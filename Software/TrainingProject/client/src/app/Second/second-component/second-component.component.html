@@ -1,4 +1,65 @@
-<p>
-  second-component works!
-</p>
-<h2>{{SecondString}}</h2>
+<!--
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Email-id</td>
+      <td>Mobile Number</td>
+      <td>Options</td>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let abc of arr">
+      &lt;!&ndash;<td>{{data.id}}</td>&ndash;&gt;
+      <td>{{abc.fname}}</td>
+      <td>{{abc.lname}}</td>
+      <td>{{abc.mailid}}</td>
+      <td>{{abc.mobnum}}</td>
+      <td>
+        <button type="button" (click)="savefun(abc.fname,abc.lname,abc.mailid,abc.mobnum)">Edit</button>
+        <button type="button" (click)="delfun(abc.fname,abc.lname,abc.mailid,abc.mobnum)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+-->
+
+<table class="table table-striped" [mfData]="arr" #mf="mfDataTable" [mfRowsOnPage]="5">
+  <thead>
+  <tr>
+    <th style="width: 20%">
+      <mfDefaultSorter by="fname">First Name</mfDefaultSorter>
+    </th>
+    <th style="width: 20%">
+      <mfDefaultSorter by="lname">Last Name</mfDefaultSorter>
+    </th>
+    <th style="width: 20%">
+      <mfDefaultSorter by="emailid">Email-ID</mfDefaultSorter>
+    </th>
+    <th style="width: 20%">
+      <mfDefaultSorter by="mobnum">MobileNumber</mfDefaultSorter>
+    </th>
+    <th style="width: 20%">
+      <mfDefaultSorter by="mobnum">Options</mfDefaultSorter>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of arr">
+    <td>{{item.fname}}</td>
+    <td>{{item.lname}}</td>
+    <td>{{item.emailid}}</td>
+    <td>{{item.mobnum}}</td>
+    <td><button type="button" (click)="editfun(item.fname,item.lname,item.emailid,item.mobnum)">Edit</button>
+      <button type="button" (click)="delfun(item.fname,item.lname,item.emailid,item.mobnum)">Delete</button></td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="4">
+      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+    </td>
+  </tr>
+  </tfoot>
+</table>
