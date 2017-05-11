@@ -5,12 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './first-component.component.html',
   styleUrls: ['./first-component.component.css']
 })
-export class FirstComponent implements OnInit {
-  public myFirstProperty: String;
+export class FirstComponentComponent implements OnInit {
+  public FirstString:string;
   constructor() { }
 
   ngOnInit() {
-    this.myFirstProperty = "Hello Sai Raj from 1st component";
+    this.FirstString = "From First Component"
   }
 
 }
